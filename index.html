@@ -9,308 +9,273 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+* { margin:0; padding:0; box-sizing:border-box; }
 
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* BODY - Deep Fluid Gradient */
 body {
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top right, #1e40af, #0f172a);
+
+    background:
+    radial-gradient(circle at 20% 20%, rgba(47,128,237,0.35), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(39,174,96,0.35), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(242,201,76,0.25), transparent 40%),
+    linear-gradient(135deg, #0f172a, #020617);
+
     background-attachment: fixed;
     color: white;
-    overflow-x: hidden;
 }
 
-/* NAV - Bubbly pill shape */
+/* NAV */
 nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 40px;
-    margin: 20px 50px;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    border-radius: 100px; /* Bubbly pill shape */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    display:flex;
+    justify-content:space-between;
+    padding:15px 40px;
+    margin:20px auto;
+    max-width:1100px;
+    align-items:center;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border-radius:100px;
 }
 
 .brand {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 26px;
-    letter-spacing: 2px;
-    font-weight: 600;
+    font-family:'Barlow Condensed';
+    font-size:26px;
+    letter-spacing:2px;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    opacity: 0.7;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: 0.3s;
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    opacity:0.7;
+    font-size:13px;
 }
 
 nav a:hover {
-    opacity: 1;
-    background: rgba(255, 255, 255, 0.1);
+    opacity:1;
 }
 
 /* HERO */
 .hero {
-    text-align: center;
-    padding: 80px 20px 60px;
+    text-align:center;
+    padding:100px 20px 60px;
+    position:relative;
+}
+
+.hero::after {
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background: radial-gradient(circle, rgba(47,128,237,0.25), transparent 70%);
+    top:20%;
+    left:50%;
+    transform:translateX(-50%);
+    filter:blur(60px);
+    z-index:-1;
 }
 
 .hero h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 72px;
-    letter-spacing: 4px;
-    line-height: 1;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+    font-family:'Barlow Condensed';
+    font-size:80px;
 }
 
 .hero p {
-    font-size: 18px;
-    color: #93c5fd;
-    font-weight: 300;
+    color:#cbd5e1;
+    max-width:600px;
+    margin:15px auto;
 }
 
-/* BUTTONS - Round & Bouncy */
+/* BUTTON */
 .btn {
-    margin-top: 30px;
-    display: inline-block;
-    padding: 18px 45px;
-    background: #facc15; 
-    color: #0f172a;
-    border-radius: 100px; /* Maximum roundness */
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(250, 204, 21, 0.2);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+    margin-top:25px;
+    padding:16px 40px;
+    border-radius:100px;
+    background: linear-gradient(135deg,#2F80ED,#27AE60);
+    color:white;
+    cursor:pointer;
+    display:inline-block;
+    transition:0.3s;
 }
 
 .btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 15px 30px rgba(250, 204, 21, 0.3);
+    transform:scale(1.05);
 }
 
-/* TRACKER - Soft liquid bar */
+/* TRACKER */
 .tracker {
-    margin-top: 50px;
+    margin-top:50px;
 }
 
 .bar {
-    width: 300px;
-    height: 14px; /* Thicker bar for bubble look */
-    background: rgba(255,255,255,0.1);
-    margin: 15px auto;
-    border-radius: 50px;
-    overflow: hidden;
-    border: 2px solid rgba(255,255,255,0.05);
+    width:320px;
+    height:10px;
+    background:#1e293b;
+    margin:15px auto;
+    border-radius:50px;
 }
 
 .fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #facc15, #fbbf24);
-    border-radius: 50px;
-    box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
-    transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+    height:100%;
+    width:0%;
+    background: linear-gradient(to right,#2F80ED,#27AE60);
+    border-radius:50px;
+    transition:0.5s;
 }
 
-/* FEATURES GRID - Rounded cards */
+/* STATS */
+.stats {
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:20px;
+}
+
+.stat {
+    font-size:14px;
+    opacity:0.8;
+}
+
+/* FEATURES */
 .features {
-    padding: 100px 8%;
-    text-align: center;
+    padding:100px 8%;
+    text-align:center;
 }
 
 .features h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 40px;
-    margin-bottom: 50px;
-    letter-spacing: 2px;
+    font-family:'Barlow Condensed';
+    letter-spacing:3px;
+    margin-bottom:50px;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
 }
 
 .card {
-    background: rgba(255,255,255,0.04);
-    padding: 45px 30px;
-    border-radius: 40px; /* Very bubbly corners */
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:20px;
+    text-align:left;
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.3s;
 }
 
 .card:hover {
-    transform: translateY(-12px);
-    background: rgba(255,255,255,0.08);
-    border-color: #facc15;
-}
-
-.card h4 {
-    margin-bottom: 15px;
-    font-size: 19px;
-    color: #facc15;
-}
-
-.card p {
-    font-size: 14px;
-    color: #cbd5e1;
-    line-height: 1.6;
+    transform:translateY(-8px);
+    border-color:rgba(255,255,255,0.2);
 }
 
 /* CTA */
 .cta {
-    padding: 120px 20px;
-    text-align: center;
-    background: radial-gradient(circle at center, rgba(30, 64, 175, 0.3), transparent);
+    text-align:center;
+    padding:100px 20px;
+    background: linear-gradient(to right,#2F80ED,#27AE60);
 }
 
-/* POPUP - Soft bubble */
-.popup {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: white;
-    color: #0f172a;
-    padding: 20px 35px;
-    border-radius: 50px; /* Pill popup */
-    display: none;
-    font-weight: 600;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    animation: popIn 0.5s cubic-bezier(0.26, 1.36, 0.74, 1);
-}
-
-@keyframes popIn {
-    from { transform: scale(0.5) translateY(50px); opacity: 0; }
-    to { transform: scale(1) translateY(0); opacity: 1; }
-}
-
-/* FOOTER */
 footer {
-    text-align: center;
-    padding: 50px;
-    font-size: 12px;
-    color: #64748b;
-    opacity: 0.8;
+    text-align:center;
+    padding:40px;
+    font-size:12px;
+    color:#64748b;
 }
-
 </style>
 </head>
 
 <body>
 
 <nav>
-    <div class="brand">SWB Co.</div>
-    <div>
-        <a href="#">Home</a>
-        <a href="#features">Features</a>
-        <a href="#buy">Shop</a>
-    </div>
+<div class="brand">SWB Co.</div>
+<div>
+<a href="#">Overview</a>
+<a href="#features">Tech</a>
+<a href="#buy">Shop</a>
+</div>
 </nav>
 
 <section class="hero">
+<h1>SMART HYDRATION</h1>
+<p>Track, optimize, and improve your hydration automatically with SWB Co.</p>
 
-    <h1>STAY SHARP</h1>
-    <p>Intelligent hydration in every drop.</p>
+<div class="tracker">
+<p>Progress: <span id="percent">0%</span></p>
 
-    <div class="tracker">
-        <p style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px;">Daily Progress: <span id="percent" style="color:#facc15; font-weight: 600;">0%</span></p>
+<div class="bar">
+<div class="fill" id="fill"></div>
+</div>
 
-        <div class="bar">
-            <div class="fill" id="fill"></div>
-        </div>
-    </div>
+<div class="stats">
+<div class="stat">Goal: 2000ml</div>
+<div class="stat">Current: <span id="ml">0</span>ml</div>
+</div>
+</div>
 
-    <div class="btn" onclick="drinkWater()">Log a Sip</div>
+<div class="btn" onclick="drinkWater()">+250ml</div>
+<div class="btn" onclick="reset()">Reset</div>
 
 </section>
 
 <section class="features" id="features">
+<h3>WHY SWB CO.</h3>
 
-    <h3>CORE TECHNOLOGY</h3>
+<div class="grid">
+<div class="card">
+<h4>Behavior Tracking</h4>
+<p>Automatically monitors your hydration habits.</p>
+</div>
 
-    <div class="grid">
-        <div class="card">
-            <h4>Live Tracking</h4>
-            <p>Proprietary sensors detect intake with 99.9% accuracy.</p>
-        </div>
+<div class="card">
+<h4>Smart Reminders</h4>
+<p>Stay on track with LED and app alerts.</p>
+</div>
 
-        <div class="card">
-            <h4>Soft Alerts</h4>
-            <p>Gentle reminders that sync with your natural circadian rhythm.</p>
-        </div>
+<div class="card">
+<h4>Personal Goals</h4>
+<p>Adjusts intake based on activity and environment.</p>
+</div>
 
-        <div class="card">
-            <h4>Cloud Sync</h4>
-            <p>Your data stays with you across every device you own.</p>
-        </div>
-
-        <div class="card">
-            <h4>Cold-Lock</h4>
-            <p>Triple-walled vacuum tech keeps ice frozen for over 24 hours.</p>
-        </div>
-    </div>
-
+<div class="card">
+<h4>Self Cleaning</h4>
+<p>Built-in UV technology eliminates bacteria.</p>
+</div>
+</div>
 </section>
 
 <section class="cta" id="buy">
-
-    <h3>READY TO FLOW?</h3>
-    <p>Upgrade your hydration experience today.</p>
-
-    <div class="btn" onclick="orderNow()">Get Started</div>
-
+<h3>STAY FOCUSED. STAY HYDRATED.</h3>
+<p>Join the next generation of hydration.</p>
+<div class="btn">Order Now</div>
 </section>
 
-<div class="popup" id="popup">
-    Added to cart! 💧
-</div>
-
 <footer>
-    © 2026 SWB CO. | DESIGNED FOR PERFORMANCE
+© 2026 SWB Co.
 </footer>
 
 <script>
-
-/* TRACKER */
-let level = 0;
+let ml = 0;
+let goal = 2000;
 
 function drinkWater() {
-    if (level < 100) {
-        level += 10;
-        document.getElementById("fill").style.width = level + "%";
-        document.getElementById("percent").innerText = level + "%";
+    if (ml < goal) {
+        ml += 250;
+        if (ml > goal) ml = goal;
+
+        let percent = Math.floor((ml / goal) * 100);
+
+        document.getElementById("fill").style.width = percent + "%";
+        document.getElementById("percent").innerText = percent + "%";
+        document.getElementById("ml").innerText = ml;
     }
 }
 
-/* CTA BUTTON */
-function orderNow() {
-    let popup = document.getElementById("popup");
-    popup.style.display = "block";
-
-    setTimeout(() => {
-        popup.style.display = "none";
-    }, 3000);
+function reset() {
+    ml = 0;
+    document.getElementById("fill").style.width = "0%";
+    document.getElementById("percent").innerText = "0%";
+    document.getElementById("ml").innerText = "0";
 }
-
 </script>
 
 </body>
