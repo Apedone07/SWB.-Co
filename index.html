@@ -1,164 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SWB Co. | Smart Hydration</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWB Co. | Smart Hydration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #020617; color: white; overflow-x: hidden; background: radial-gradient(circle at 50% 50%, #0f172a, #020617); }
+        
+        nav { display:flex; justify-content:space-between; padding:15px 40px; margin:20px auto; max-width:1100px; align-items:center; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border-radius:100px; border: 1px solid rgba(255,255,255,0.1); }
+        .brand { font-family:'Barlow Condensed'; font-size:26px; letter-spacing:2px; color: #27AE60; }
+        nav a { color:white; text-decoration:none; margin-left:20px; opacity:0.7; font-size:13px; }
 
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
+        .hero { text-align:center; padding:100px 20px 60px; }
+        .hero h1 { font-family:'Barlow Condensed'; font-size:clamp(50px, 8vw, 100px); line-height: 0.9; }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #020617;
-    color: white;
-    overflow-x: hidden;
-    background: radial-gradient(circle at 50% 50%, #0f172a, #020617);
-}
+        /* NEW FEATURES SECTION STYLES */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .feature-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 24px;
+            transition: 0.3s;
+            text-align: left;
+        }
+        .feature-box:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-5px);
+            border-color: #2F80ED;
+        }
+        .feature-box h3 {
+            font-family: 'Barlow Condensed';
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #27AE60;
+            letter-spacing: 1px;
+        }
+        .feature-box p {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        .icon { font-size: 30px; margin-bottom: 15px; display: block; }
 
-nav {
-    display:flex;
-    justify-content:space-between;
-    padding:15px 40px;
-    margin:20px auto;
-    max-width:1100px;
-    align-items:center;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(20px);
-    border-radius:100px;
-    border: 1px solid rgba(255,255,255,0.1);
-}
+        .btn { margin: 10px; padding:16px 40px; border-radius:100px; background: linear-gradient(135deg,#2F80ED,#27AE60); color:white; cursor:pointer; display:inline-block; transition:0.3s; border: none; font-weight: 500; }
+        .btn:hover { transform:scale(1.05); box-shadow: 0 0 20px rgba(47,128,237,0.4); }
 
-.brand {
-    font-family:'Barlow Condensed';
-    font-size:26px;
-    letter-spacing:2px;
-}
+        .tracker { margin-top:50px; }
+        .bar { width:100%; max-width:400px; height:12px; background: rgba(255,255,255,0.1); margin:15px auto; border-radius:50px; overflow: hidden; }
+        .fill { height:100%; width:0%; background: linear-gradient(to right,#2F80ED,#27AE60); transition: 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
 
-nav a {
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-    opacity:0.7;
-    font-size:13px;
-}
+        .app-section { padding: 100px 20px; display: flex; justify-content: center; align-items: center; flex-direction: column; }
+        .phone-mockup { width: 280px; height: 550px; background: #111; border: 8px solid #334155; border-radius: 40px; position: relative; padding: 20px; box-shadow: 0 50px 100px rgba(0,0,0,0.5); }
+        .app-ui { background: #0f172a; height: 100%; width: 100%; border-radius: 20px; padding: 15px; }
+        .app-circle { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #2F80ED; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+        .app-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 10px; margin-bottom: 10px; font-size: 12px; }
 
-.hero {
-    text-align:center;
-    padding:100px 20px 60px;
-}
-
-.hero h1 {
-    font-family:'Barlow Condensed';
-    font-size:clamp(50px, 8vw, 100px);
-    line-height: 0.9;
-}
-
-.btn {
-    margin: 10px;
-    padding:16px 40px;
-    border-radius:100px;
-    background: linear-gradient(135deg,#2F80ED,#27AE60);
-    color:white;
-    cursor:pointer;
-    display:inline-block;
-    transition:0.3s;
-    border: none;
-    font-weight: 500;
-}
-
-.btn:hover { transform:scale(1.05); box-shadow: 0 0 20px rgba(47,128,237,0.4); }
-
-.tracker { margin-top:50px; }
-.bar {
-    width:100%;
-    max-width:400px;
-    height:12px;
-    background: rgba(255,255,255,0.1);
-    margin:15px auto;
-    border-radius:50px;
-    overflow: hidden;
-}
-.fill {
-    height:100%;
-    width:0%;
-    background: linear-gradient(to right,#2F80ED,#27AE60);
-    transition: 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-}
-
-.app-section {
-    padding: 100px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.phone-mockup {
-    width: 280px;
-    height: 550px;
-    background: #111;
-    border: 8px solid #334155;
-    border-radius: 40px;
-    position: relative;
-    padding: 20px;
-    box-shadow: 0 50px 100px rgba(0,0,0,0.5);
-}
-
-.app-ui {
-    background: #0f172a;
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
-    padding: 15px;
-}
-
-.app-circle {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 4px solid #2F80ED;
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-}
-
-.app-card {
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    padding: 10px;
-    margin-bottom: 10px;
-    font-size: 12px;
-}
-
-/* Updated Intrusive Modal to Simple Notification */
-.toast-notice {
-    position: fixed;
-    bottom: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 15px 30px;
-    border-radius: 50px;
-    z-index: 1000;
-    transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-align: center;
-    min-width: 300px;
-}
-
-.toast-notice.show {
-    bottom: 30px;
-}
-
-footer { padding: 40px; text-align: center; opacity: 0.4; font-size: 12px; }
-</style>
+        .toast-notice { position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2); padding: 15px 30px; border-radius: 50px; z-index: 1000; transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-align: center; min-width: 300px; }
+        .toast-notice.show { bottom: 30px; }
+        footer { padding: 40px; text-align: center; opacity: 0.4; font-size: 12px; }
+    </style>
 </head>
-
 <body>
 
 <nav>
@@ -173,7 +84,7 @@ footer { padding: 40px; text-align: center; opacity: 0.4; font-size: 12px; }
 <section class="hero">
     <h1>SMART <br>HYDRATION</h1>
     <p>The first water bottle that thinks for you.</p>
-
+    
     <div class="tracker">
         <p>Progress: <span id="percent">0%</span></p>
         <div class="bar"><div class="fill" id="fill"></div></div>
@@ -183,6 +94,30 @@ footer { padding: 40px; text-align: center; opacity: 0.4; font-size: 12px; }
     <div style="margin-top: 30px;">
         <button class="btn" onclick="drinkWater()">Log 250ml</button>
         <button class="btn" style="background: rgba(255,255,255,0.1);" onclick="reset()">Reset</button>
+    </div>
+</section>
+
+<!-- NEW SIDE-BY-SIDE FEATURE BOXES -->
+<section id="features" class="features-grid">
+    <div class="feature-box">
+        <span class="icon">📊</span>
+        <h3>Behavioral Nudging</h3>
+        <p>Built-in LED sensors and app alerts remind you to sip, increasing daily intake by up to 27%.</p>
+    </div>
+    <div class="feature-box">
+        <span class="icon">☀️</span>
+        <h3>Smart UV-C Clean</h3>
+        <p>Self-cleaning technology uses UV light to disinfect your bottle, eliminating 99% of bacteria and odors.</p>
+    </div>
+    <div class="feature-box">
+        <span class="icon">⚡</span>
+        <h3>Sync & Track</h3>
+        <p>Connects with Apple Watch and Fitbit to adjust goals based on your activity and local weather.</p>
+    </div>
+    <div class="feature-box">
+        <span class="icon">❄️</span>
+        <h3>24H Insulation</h3>
+        <p>Premium vacuum-sealed stainless steel keeps your water ice-cold for over 24 hours.</p>
     </div>
 </section>
 
@@ -212,37 +147,37 @@ footer { padding: 40px; text-align: center; opacity: 0.4; font-size: 12px; }
 <footer>© 2026 SWB Co. Designed for the future.</footer>
 
 <script>
-let ml = 0;
-let goal = 2000;
+    let ml = 0;
+    let goal = 2000;
 
-function drinkWater() {
-    if (ml < goal) {
-        ml += 250;
-        if (ml > goal) ml = goal;
+    function drinkWater() {
+        if (ml < goal) {
+            ml += 250;
+            if (ml > goal) ml = goal;
+            updateUI();
+        }
+    }
+
+    function reset() {
+        ml = 0;
         updateUI();
     }
-}
 
-function reset() {
-    ml = 0;
-    updateUI();
-}
+    function updateUI() {
+        let percent = Math.floor((ml / goal) * 100);
+        document.getElementById("fill").style.width = percent + "%";
+        document.getElementById("percent").innerText = percent + "%";
+        document.getElementById("appProgress").innerText = percent + "%";
+        document.getElementById("ml").innerText = ml;
+    }
 
-function updateUI() {
-    let percent = Math.floor((ml / goal) * 100);
-    document.getElementById("fill").style.width = percent + "%";
-    document.getElementById("percent").innerText = percent + "%";
-    document.getElementById("appProgress").innerText = percent + "%";
-    document.getElementById("ml").innerText = ml;
-}
-
-function showToast() {
-    const toast = document.getElementById("toast");
-    toast.classList.add("show");
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 3000);
-}
+    function showToast() {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3000);
+    }
 </script>
 
 </body>
