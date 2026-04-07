@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SWB Co. | Smart Hydration</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY - Deep Fluid Gradient */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top right, #1e40af, #0f172a);
+    background-attachment: fixed;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* NAV - Bubbly pill shape */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    margin: 20px 50px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 100px; /* Bubbly pill shape */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    opacity: 0.7;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+}
+
+.hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 72px;
+    letter-spacing: 4px;
+    line-height: 1;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+}
+
+.hero p {
+    font-size: 18px;
+    color: #93c5fd;
+    font-weight: 300;
+}
+
+/* BUTTONS - Round & Bouncy */
+.btn {
+    margin-top: 30px;
+    display: inline-block;
+    padding: 18px 45px;
+    background: #facc15; 
+    color: #0f172a;
+    border-radius: 100px; /* Maximum roundness */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(250, 204, 21, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 15px 30px rgba(250, 204, 21, 0.3);
+}
+
+/* TRACKER - Soft liquid bar */
+.tracker {
+    margin-top: 50px;
+}
+
+.bar {
+    width: 300px;
+    height: 14px; /* Thicker bar for bubble look */
+    background: rgba(255,255,255,0.1);
+    margin: 15px auto;
+    border-radius: 50px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.05);
+}
+
+.fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #facc15, #fbbf24);
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
+    transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* FEATURES GRID - Rounded cards */
+.features {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.features h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 40px;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card {
+    background: rgba(255,255,255,0.04);
+    padding: 45px 30px;
+    border-radius: 40px; /* Very bubbly corners */
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    background: rgba(255,255,255,0.08);
+    border-color: #facc15;
+}
+
+.card h4 {
+    margin-bottom: 15px;
+    font-size: 19px;
+    color: #facc15;
+}
+
+.card p {
+    font-size: 14px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* CTA */
+.cta {
+    padding: 120px 20px;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(30, 64, 175, 0.3), transparent);
+}
+
+/* POPUP - Soft bubble */
+.popup {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: white;
+    color: #0f172a;
+    padding: 20px 35px;
+    border-radius: 50px; /* Pill popup */
+    display: none;
+    font-weight: 600;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    animation: popIn 0.5s cubic-bezier(0.26, 1.36, 0.74, 1);
+}
+
+@keyframes popIn {
+    from { transform: scale(0.5) translateY(50px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 50px;
+    font-size: 12px;
+    color: #64748b;
+    opacity: 0.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="brand">SWB Co.</div>
+    <div>
+        <a href="#">Home</a>
+        <a href="#features">Features</a>
+        <a href="#buy">Shop</a>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <h1>STAY SHARP</h1>
+    <p>Intelligent hydration in every drop.</p>
+
+    <div class="tracker">
+        <p style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px;">Daily Progress: <span id="percent" style="color:#facc15; font-weight: 600;">0%</span></p>
+
+        <div class="bar">
+            <div class="fill" id="fill"></div>
+        </div>
+    </div>
+
+    <div class="btn" onclick="drinkWater()">Log a Sip</div>
+
+</section>
+
+<section class="features" id="features">
+
+    <h3>CORE TECHNOLOGY</h3>
+
+    <div class="grid">
+        <div class="card">
+            <h4>Live Tracking</h4>
+            <p>Proprietary sensors detect intake with 99.9% accuracy.</p>
+        </div>
+
+        <div class="card">
+            <h4>Soft Alerts</h4>
+            <p>Gentle reminders that sync with your natural circadian rhythm.</p>
+        </div>
+
+        <div class="card">
+            <h4>Cloud Sync</h4>
+            <p>Your data stays with you across every device you own.</p>
+        </div>
+
+        <div class="card">
+            <h4>Cold-Lock</h4>
+            <p>Triple-walled vacuum tech keeps ice frozen for over 24 hours.</p>
+        </div>
+    </div>
+
+</section>
+
+<section class="cta" id="buy">
+
+    <h3>READY TO FLOW?</h3>
+    <p>Upgrade your hydration experience today.</p>
+
+    <div class="btn" onclick="orderNow()">Get Started</div>
+
+</section>
+
+<div class="popup" id="popup">
+    Added to cart! 💧
+</div>
+
+<footer>
+    © 2026 SWB CO. | DESIGNED FOR PERFORMANCE
+</footer>
+
+<script>
+
+/* TRACKER */
+let level = 0;
+
+function drinkWater() {
+    if (level < 100) {
+        level += 10;
+        document.getElementById("fill").style.width = level + "%";
+        document.getElementById("percent").innerText = level + "%";
+    }
+}
+
+/* CTA BUTTON */
+function orderNow() {
+    let popup = document.getElementById("popup");
+    popup.style.display = "block";
+
+    setTimeout(() => {
+        popup.style.display = "none";
+    }, 3000);
+}
+
+</script>
+
+</body>
+</html>
